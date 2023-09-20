@@ -28,11 +28,12 @@ int print_char(va_list types, char buffer[],
 * Return: Number of characters printed
 */
 int print_string(va_list types, char buffer[],
-	int flags, int width, int precision, int size)
+int flags, int width, int precision, int size)
 {
 	int length = 0, i;
 	char *str = va_arg(types, char *);
 
+	UNUSED(buffer);
 	UNUSED(flags);
 	UNUSED(width);
 	UNUSED(precision);
@@ -158,8 +159,7 @@ int print_binary(va_list types, char buffer[],
 	sum += a[i];
 	if (sum || i == 31)
 	{
-	char z = '0' + a[i]
-
+	char z = '0' + a[i];
 	write(1, &z, 1);
 	count++;
 	}
